@@ -1,0 +1,191 @@
+/* Import Google Fonts - Poppins (digunakan kembali) untuk teks umum, dan Montserrat untuk judul (lebih ramping dari Playfair/Lora) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Poppins:wght@300;400&display=swap');
+
+:root {
+    /* Palet warna minimalis, futuristik, high-class */
+    --primary-text-color: #2c3e50;   /* Hampir hitam, tapi lebih lembut */
+    --secondary-text-color: #7f8c8d; /* Abu-abu sedang untuk detail */
+    --background-light: #fdfdfd;     /* Putih off-white sangat terang */
+    --background-dark: #ecf0f1;      /* Abu-abu sangat terang */
+    --card-background: #ffffff;      /* Putih bersih untuk elemen utama */
+    --accent-color: #34495e;         /* Abu-abu gelap sebagai aksen kuat */
+    --button-bg: #4a69bd;            /* Biru keabuan kalem untuk tombol */
+    --button-hover-bg: #2c3e50;      /* Biru gelap ke abu-abuan saat hover */
+
+    --border-radius-large: 16px;
+    --border-radius-small: 8px;
+    --shadow-subtle: 0 4px 10px rgba(0, 0, 0, 0.05); /* Bayangan sangat halus */
+    --shadow-medium: 0 8px 20px rgba(0, 0, 0, 0.08); /* Bayangan sedikit lebih terlihat */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Font umum yang bersih dan modern */
+    background: linear-gradient(135deg, var(--background-light) 0%, var(--background-dark) 100%); /* Gradien sangat lembut */
+    color: var(--primary-text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    line-height: 1.6;
+}
+
+/* Menghilangkan animasi background yang terlalu "ramai" */
+.background-animation {
+    display: none;
+}
+
+.container {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-medium); /* Bayangan lebih halus */
+    padding: 35px; /* Padding sedikit lebih besar */
+    text-align: center;
+    max-width: 480px;
+    width: 90%;
+    margin: 25px auto; /* Margin atas bawah sedikit lebih besar */
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+header {
+    margin-bottom: 35px; /* Jarak sedikit lebih jauh */
+}
+
+.profile-pic {
+    width: 140px; /* Ukuran sedikit lebih kecil untuk minimalis */
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-color); /* Border lebih tipis */
+    margin-bottom: 25px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 0 0 5px rgba(var(--accent-color), 0.1); /* Bayangan cincin sangat halus */
+}
+
+.profile-pic:hover {
+    transform: scale(1.05); /* Efek hover lebih subtle */
+    border-color: var(--button-bg);
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif; /* Font judul yang ramping dan modern */
+    font-weight: 600; /* Sedikit lebih tebal dari teks biasa */
+    font-size: 2.4em;
+    color: var(--primary-text-color);
+    margin-bottom: 8px;
+    letter-spacing: -0.5px; /* Jarak antar huruf sedikit dikurangi untuk kesan padat */
+}
+
+.tagline {
+    font-size: 1.1em;
+    color: var(--secondary-text-color);
+    margin-top: 0;
+    font-weight: 300; /* Lebih tipis untuk kesan ringan */
+}
+
+.social-icons {
+    margin-top: 30px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 28px; /* Jarak antar ikon sedikit lebih lebar */
+}
+
+.social-icons a {
+    color: var(--secondary-text-color); /* Warna ikon lebih kalem */
+    font-size: 1.7em;
+    transition: color 0.2s ease, transform 0.2s ease;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: var(--button-bg); /* Berubah ke warna tombol saat hover */
+    transform: translateY(-3px); /* Gerakan lebih halus */
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Jarak antar tombol link */
+    margin-bottom: 35px;
+}
+
+.link-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--button-bg); /* Warna solid untuk tombol */
+    color: white;
+    text-decoration: none;
+    padding: 18px 25px; /* Padding sedikit lebih besar */
+    border-radius: var(--border-radius-small); /* Radius sudut lebih kecil untuk kesan modern */
+    font-size: 1.1em;
+    font-weight: 600; /* Font tombol agak tebal */
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--shadow-subtle); /* Bayangan tombol sangat halus */
+    /* Menghilangkan efek kilau agar lebih minimalis */
+}
+
+.link-item:hover {
+    background-color: var(--button-hover-bg); /* Perubahan warna lebih subtle saat hover */
+    transform: translateY(-2px); /* Animasi naik lebih halus */
+    box-shadow: var(--shadow-medium); /* Bayangan sedikit lebih kuat saat hover */
+}
+
+.link-item .icon {
+    margin-right: 12px;
+    font-size: 1.25em; /* Ukuran ikon tombol sedikit disesuaikan */
+}
+
+footer {
+    font-size: 0.85em;
+    color: var(--secondary-text-color);
+    margin-top: 25px;
+    font-weight: 300;
+}
+
+/* Responsif untuk layar lebih kecil */
+@media (max-width: 600px) {
+    .container {
+        padding: 25px;
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .tagline {
+        font-size: 1em;
+    }
+
+    .link-item {
+        padding: 15px 20px;
+        font-size: 1em;
+    }
+
+    .social-icons {
+        gap: 20px;
+    }
+
+    .social-icons a {
+        font-size: 1.5em;
+    }
+}
